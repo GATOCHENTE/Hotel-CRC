@@ -56,17 +56,17 @@
   <h2>Descargar Hotel CRC</h2>
   <p>Mundo compatible con Minecraft Bedrock</p>
 
-  <p id="textoCaptcha">Completa el captcha para habilitar la descarga</p>
+<p id="textoCaptcha">Completa el captcha para habilitar la descarga</p>
 
 <div
   class="cf-turnstile"
-  data-sitekey="0x4AAAAAACJprpv3y-Agom4a"
+  data-sitekey="TU_SITEKEY"
   data-theme="light"
   data-language="es"
   data-callback="captchaOk">
 </div>
 
- <a id="btnDescarga"
+<a id="btnDescarga"
    class="btn-descarga oculto"
    href="downloads/Hotel_CRC.mcworld"
    download>
@@ -88,7 +88,7 @@
   <p>© 2025 Hotel CRC — Proyecto creado por Chente</p>
 </footer>
 
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 
 <script>
 window.captchaOk = function () {
@@ -96,20 +96,13 @@ window.captchaOk = function () {
   const texto = document.getElementById("textoCaptcha");
 
   if (btn) {
-    btn.style.display = "inline-block";
+    btn.classList.remove("oculto");
   }
 
   if (texto) {
     texto.style.display = "none";
   }
 };
-
-document.addEventListener("DOMContentLoaded", function () {
-  const btn = document.getElementById("btnDescarga");
-  if (btn) {
-    btn.style.display = "none";
-  }
-});
 </script>
 
 </body>
