@@ -121,4 +121,9 @@ footer {
   .hero {
     padding: 70px 15px;
   }
+
 }
+.oculto {
+  display: none;
+}
+
