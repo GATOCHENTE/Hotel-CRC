@@ -88,21 +88,28 @@
   <p>© 2025 Hotel CRC — Proyecto creado por Chente</p>
 </footer>
 
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 
 <script>
+window.captchaOk = function () {
+  const btn = document.getElementById("btnDescarga");
+  const texto = document.getElementById("textoCaptcha");
+
+  if (btn) {
+    btn.style.display = "inline-block";
+  }
+
+  if (texto) {
+    texto.style.display = "none";
+  }
+};
+
 document.addEventListener("DOMContentLoaded", function () {
   const btn = document.getElementById("btnDescarga");
   if (btn) {
     btn.style.display = "none";
   }
 });
-
-function captchaOk() {
-  const btn = document.getElementById("btnDescarga");
-  btn.style.display = "inline-block";
-  document.getElementById("textoCaptcha").style.display = "none";
-}
 </script>
 
 </body>
