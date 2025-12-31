@@ -84,9 +84,13 @@
   </p>
 </section>
 
-<footer>
-  <p>© 2025 Hotel CRC — Proyecto creado por Chente</p>
+<footer class="footer">
+  <p>© <span id="year"></span> Hotel CRC. Todos los derechos reservados.</p>
 </footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
 
