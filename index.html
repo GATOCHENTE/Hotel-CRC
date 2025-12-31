@@ -85,11 +85,20 @@
 </section>
 
 <footer class="footer">
-  <p>© 2025 - <span id="year"></span> • Hotel CRC. Todos los derechos reservados.</p>
+  <p id="copyright"></p>
 </footer>
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const startYear = 2025;
+  const currentYear = new Date().getFullYear();
+
+  let yearText = `© ${startYear}`;
+  if (currentYear > startYear) {
+    yearText += ` - ${currentYear}`;
+  }
+
+  document.getElementById("copyright").textContent =
+    `${yearText} • Hotel CRC. Todos los derechos reservados.`;
 </script>
 
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
