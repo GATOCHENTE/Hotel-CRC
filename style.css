@@ -127,22 +127,24 @@ footer {
   display: none;
 }
 
-/* NAVBAR LIQUID GLASS */
+/* PILL NAVBAR FLOTANTE */
 
-.floating-glass {
+.pill-nav {
   position: fixed;
-  bottom: 20px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 18px;
-  padding: 12px 18px;
+  align-items: center;
+  gap: 10px;
 
-  background: rgba(255, 255, 255, 0.15);
+  padding: 10px 14px;
+
+  background: rgba(255,255,255,0.18);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 
-  border-radius: 40px;
+  border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.3);
 
   box-shadow:
@@ -150,61 +152,73 @@ footer {
     inset 0 1px 1px rgba(255,255,255,0.4);
 
   z-index: 999;
-  animation: glassFadeIn 0.7s ease;
+  animation: pillFade 0.7s ease;
 }
 
-/* ICONOS */
+/* LOGO */
 
-.nav-icon {
-  width: 42px;
-  height: 42px;
+.pill-logo img {
+  height: 34px;
   border-radius: 50%;
+}
+
+/* BOTONES */
+
+.pill-btn {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: white;
 
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
-.nav-icon svg {
-  width: 22px;
-  height: 22px;
+.pill-btn svg {
+  width: 20px;
+  height: 20px;
   stroke: white;
   fill: none;
   stroke-width: 2;
-  opacity: 0.9;
-  transition: all 0.25s ease;
 }
 
-/* EFECTO HOVER SUAVE */
+/* TEXTO OCULTO */
 
-.nav-icon:hover {
-  background: rgba(255,255,255,0.25);
-  transform: scale(1.15);
+.pill-btn span {
+  max-width: 0;
+  opacity: 0;
+  white-space: nowrap;
+  transition: all 0.3s ease;
 }
 
-.nav-icon:hover svg {
-  opacity: 1;
-}
+/* BOTÓN ACTIVO EXPANDIDO */
 
-/* BOTÓN DESCARGA DESTACADO */
-
-.nav-icon.download {
+.pill-btn.active {
   background: linear-gradient(135deg, #ff9800, #ff5722);
-  box-shadow: 0 0 12px rgba(255,152,0,0.7);
+  padding: 10px 16px;
 }
 
-.nav-icon.download svg {
-  stroke: white;
+.pill-btn.active span {
+  max-width: 120px;
   opacity: 1;
 }
 
-/* ANIMACIÓN ENTRADA */
+/* ANIMACIONES */
 
-@keyframes glassFadeIn {
+.pill-btn:hover {
+  transform: scale(1.08);
+  background: rgba(255,255,255,0.25);
+}
+
+/* ENTRADA */
+
+@keyframes pillFade {
   from {
     opacity: 0;
-    transform: translate(-50%, 30px);
+    transform: translate(-50%, -20px);
   }
   to {
     opacity: 1;
@@ -212,7 +226,10 @@ footer {
   }
 }
 
-/* ESPACIO PARA QUE NO TAPE CONTENIDO */
-body {
-  padding-bottom: 100px;
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+  .pill-nav {
+    transform: translateX(-50%) scale(0.95);
+  }
 }
