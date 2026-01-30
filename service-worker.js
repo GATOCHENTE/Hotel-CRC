@@ -33,9 +33,16 @@ self.addEventListener("activate", event => {
 })
 
 self.addEventListener("fetch", event => {
+  const url = new URL(event.request.url);
+
+  // No interceptar archivos descargables
+  if (url.pathname.endsWith(".mcworld")) {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then(response => {
-      return response || fetch(event.request)
+      return response || fetch(event.request);
     })
-  )
-})
+  );
+});
